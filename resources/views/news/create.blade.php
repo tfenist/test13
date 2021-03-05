@@ -24,7 +24,7 @@
             {{Form::label('email', 'email')}}
             {{Form::text('email', null)}}
         </div>
-        {{Form::submit('Добавить', )}}
+        {{Form::submit('Добавить' )}}
         {!! Form::close() !!}
     </div>
 

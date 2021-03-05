@@ -30,6 +30,8 @@
                         <td>ID</td>
                         <td>Title</td>
                         <td>Actions</td>
+                        <td>Message</td>
+                        <td>email</td>
                     </tr>
                     </thead>
                     @foreach ($news as $one_news)
@@ -40,6 +42,12 @@
                             </td>
                             <td>
                                 {{$one_news->subject}}
+                            </td>
+                            <td>
+                                {{$one_news->message}}
+                            </td>
+                            <td>
+                                {{$one_news->email}}
                             </td>
                             <td>
                                 <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>

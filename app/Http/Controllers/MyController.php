@@ -28,11 +28,10 @@ class MyController extends Controller
             return redirect(route('news.index'));
         } else {
             $data['news'] = $news;
-
             return view('news.edit', $data);
-        } // else if (!is_null($news))
+           //return view('news.edit', compact($data));
+        }
     }
-
 
     public function store(Request $request)
     {
@@ -85,7 +84,6 @@ class MyController extends Controller
                 'name' => $input['name'],
                 'email' => $input['email'],
             ];
-            return redirect('/news')->with('success','Новость Изменена!');
         }
     }
 
