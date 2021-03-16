@@ -4,7 +4,7 @@
     <div class="container">
         <h3>Edit</h3>
 
-        {!! Form::open(['route' => ['news.store', ['id', $news->id]]]) !!}
+        {!! Form::open(['route' => ['news.update']]) !!}
         {{Form::hidden('id', $news->id)}}
         <div class="form-group">
             {{Form::label('subject', 'subject')}}

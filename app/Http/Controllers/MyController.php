@@ -10,6 +10,9 @@ use Symfony\Component\Console\Input\Input;
 
 class MyController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $data['news'] = News::all();
@@ -21,6 +24,11 @@ class MyController extends Controller
         return view('news.create');
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function edit(Request $request, $id)
     {
         $news = News::find($id);
@@ -29,10 +37,14 @@ class MyController extends Controller
         } else {
             $data['news'] = $news;
             return view('news.edit', $data);
-           //return view('news.edit', compact($data));
-        }
+        } // else if (is_null($news))
     }
 
+    /** ****************************************************************************************************************
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * ****************************************************************************************************************/
     public function store(Request $request)
     {
         $input = $request->all();
@@ -46,7 +58,7 @@ class MyController extends Controller
             request()->session('Не введены все неоходимые данные');
             return redirect((route('news.create')))->withInput();
         } else {
-            dump($input);
+            //dump($input);
             $newNews = [
                 'subject' => $input['subject'],
                 'message' => $input['message'],
@@ -58,12 +70,12 @@ class MyController extends Controller
 
             $result->message .= '!!!';
             $result->save();
-            return redirect('/news')->with('success','Новость Изменена!');
-        }
+            return redirect(route('news.index'));
+        } // else if ($validator->fails())
 
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $input = $request->all();
         $validator = Validator::make($input, [
@@ -75,27 +87,18 @@ class MyController extends Controller
 
         if ($validator->fails()) {
             request()->session('Не введены все неоходимые данные');
-            return redirect((route('news.create')))->withInput();
+            return redirect((route('news.edit', ['id' => $input['id']])))->withInput();
         } else {
-            dump($input);
-            $newNews = [
-                'subject' => $input['subject'],
-                'message' => $input['message'],
-                'name' => $input['name'],
-                'email' => $input['email'],
-            ];
-        }
+            $one_news = News::find($input['id']);
+            $one_news->fill($input)->save();
+            return redirect(route('news.index'));
+        } // else  if ($validator->fails())
     }
 
     public function destroy(Request $request, $id)
     {
         $news = News::find($id);
         $news->delete();
-        return redirect('/news')->with('success','Новость удалена!');
+        return redirect(route('news.index'))->with('success', 'Новость удалена!');
     }
-
-//    public function show(News $news)
-//    {
-//        return view('news.show', $news);
-//    }
 }

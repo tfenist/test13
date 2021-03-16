@@ -22,5 +22,5 @@ Route::get('news/create', [\App\Http\Controllers\MyController::class, 'create'])
 Route::post('news/store', [\App\Http\Controllers\MyController::class, 'store'])->name('news.store');
 Route::get('news/edit/{id}', [\App\Http\Controllers\MyController::class, 'edit'])->name('news.edit');
 Route::get('news/destroy/{id}', [\App\Http\Controllers\MyController::class, 'destroy'])->name('news.destroy');
-Route::get('news/update/{id}', [\App\Http\Controllers\MyController::class, 'update'])->name('news.update');
+Route::post('news/update', [\App\Http\Controllers\MyController::class, 'update'])->name('news.update');
 

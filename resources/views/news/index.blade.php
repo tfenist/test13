@@ -29,9 +29,9 @@
                     <tr>
                         <td>ID</td>
                         <td>Title</td>
-                        <td>Actions</td>
                         <td>Message</td>
                         <td>email</td>
+                        <td>Actions</td>
                     </tr>
                     </thead>
                     @foreach ($news as $one_news)
