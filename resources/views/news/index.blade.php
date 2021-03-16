@@ -52,6 +52,36 @@
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Title</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    @foreach ($news as $one_news)
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{$one_news->id}}
+                            </td>
+                            <td>
+                                {{$one_news->subject}}
+                            </td>
+                            <td>
+                                <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>
+                                <a class="btn btn-success" href="{{ route('news.edit' ,$one_news->id) }}">Edit</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    @endforeach
+                </table>
+
+            </div>
+        </div>
     </div>
 
 @endsection
