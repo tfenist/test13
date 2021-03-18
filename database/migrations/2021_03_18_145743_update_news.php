@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableNews extends Migration
+class UpdateNews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateTableNews extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->id();
-            $table->string('subject');
-            $table->text('message');
-            $table->string('name');
-            $table->string('email');
-            $table->timestamps();
+        Schema::table('news', function (Blueprint $table) {
+            $table->integer('author_id');
+            //$table->foreign ( 'author_id' )->references ( 'id' )->on ( 'authors' );
         });
     }
 
@@ -30,6 +26,8 @@ class CreateTableNews extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::table ('news', function(Blueprint $table) {
+           // $table->dropForeign('news_author_id_foreign' );
+        } );
     }
 }

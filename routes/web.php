@@ -16,6 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
 Route::get('/news', [\App\Http\Controllers\MyController::class, 'index'])->name('news.index');
 //Route::get('news/create', 'MyController@create')->name('news.create');
 Route::get('news/create', [\App\Http\Controllers\MyController::class, 'create'])->name('news.create');
@@ -24,3 +26,7 @@ Route::get('news/edit/{id}', [\App\Http\Controllers\MyController::class, 'edit']
 Route::get('news/destroy/{id}', [\App\Http\Controllers\MyController::class, 'destroy'])->name('news.destroy');
 Route::post('news/update', [\App\Http\Controllers\MyController::class, 'update'])->name('news.update');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

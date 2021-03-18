@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\News;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -15,13 +16,14 @@ class MyController extends Controller
      */
     public function index()
     {
-        $data['news'] = News::all();
+        $data['news'] = News::paginate(2);
         return view('news.index', $data);
     }
 
     public function create()
     {
-        return view('news.create');
+        $data['authors'] = Author::pluck('name', 'id')->toArray();
+        return view('news.create', $data);
     }
 
     /**

@@ -24,6 +24,11 @@
             {{Form::label('email', 'email')}}
             {{Form::text('email', null)}}
         </div>
+
+        <div class="form-group">
+            {{Form::label('author_id', 'Автор')}}
+            {{Form::select('author_id', ['' => 'Выберите автора'] + $authors)}}
+        </div>
         {{Form::submit('Добавить' )}}
         {!! Form::close() !!}
     </div>

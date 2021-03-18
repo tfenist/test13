@@ -27,7 +27,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Message</th>
+                <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Автор</th>
                 <th scope="col">Actions</th>
             </tr>
             </thead>
@@ -44,7 +46,13 @@
                         {{$one_news->message}}
                     </td>
                     <td>
+                        {{$one_news->name}}
+                    </td>
+                    <td>
                         {{$one_news->email}}
+                    </td>
+                    <td>
+                        {{$one_news->author->name}}
                     </td>
                     <td>
                         <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>
@@ -54,6 +62,7 @@
                 </tbody>
             @endforeach
         </table>
+        {{$news->links()}}
         <a href="{{ route('news.create') }}" class="btn btn-success">Create</a>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

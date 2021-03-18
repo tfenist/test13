@@ -5,20 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class Author extends Model
 {
     use HasFactory;
     protected $connection ='mysql';
-    public $table = 'news';
+    public $table = 'authors';
     protected $fillable = [
-        'subject',
-        'message',
         'name',
-        'email',
-        'author_id'
     ];
 
-    public function author() {
-        return $this->belongsTo('App\Models\Author','author_id');
+    public function allnews() {
+        return $this->hasMany('App/Models/News', 'author_id');
     }
 }
