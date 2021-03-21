@@ -11,26 +11,32 @@ use Symfony\Component\Console\Input\Input;
 
 class MyController extends Controller
 {
-    /**
+    /** ****************************************************************************************************************
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
+     * ****************************************************************************************************************/
     public function index()
     {
-        $data['news'] = News::paginate(2);
+        $data['news'] = News::paginate(`15`);
         return view('news.index', $data);
     }
 
+
+    /** ****************************************************************************************************************
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * ****************************************************************************************************************/
     public function create()
     {
         $data['authors'] = Author::pluck('name', 'id')->toArray();
-        return view('news.create', $data);
+        //dd($data);
+        return view('news.create',$data);
     }
 
-    /**
+
+    /** ****************************************************************************************************************
      * @param Request $request
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
+     * ****************************************************************************************************************/
     public function edit(Request $request, $id)
     {
         $news = News::find($id);
@@ -41,6 +47,7 @@ class MyController extends Controller
             return view('news.edit', $data);
         } // else if (is_null($news))
     }
+
 
     /** ****************************************************************************************************************
      * @param Request $request
@@ -55,6 +62,7 @@ class MyController extends Controller
             'message' => 'required',
             'name' => 'required',
             'email' => 'required|email',
+            'author_id' => 'required'
         ]);
         if ($validator->fails()) {
             request()->session('Не введены все неоходимые данные');
@@ -66,17 +74,21 @@ class MyController extends Controller
                 'message' => $input['message'],
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'author_id' => $input['author_id'],
             ];
 
             $result = News::create($newNews);
 
-            $result->message .= '!!!';
-            $result->save();
             return redirect(route('news.index'));
         } // else if ($validator->fails())
 
     }
 
+
+    /** ****************************************************************************************************************
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * ****************************************************************************************************************/
     public function update(Request $request)
     {
         $input = $request->all();
@@ -97,6 +109,12 @@ class MyController extends Controller
         } // else  if ($validator->fails())
     }
 
+
+    /** ****************************************************************************************************************
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * ****************************************************************************************************************/
     public function destroy(Request $request, $id)
     {
         $news = News::find($id);

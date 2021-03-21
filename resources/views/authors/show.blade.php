@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>My news</h3>
+        <h3>Author</h3>
         <table class="table">
             <thead class="thead-light">
             <tr>
@@ -15,41 +15,37 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            @foreach ($news as $one_news)
+            @foreach ($authors as $allnews)
                 <tbody>
                 <tr>
                     <td>
-                        {{$one_news->id}}
+                        {{$allnews->id}}
                     </td>
                     <td>
-                        {{$one_news->subject}}
+                        {{$allnews->subject}}
                     </td>
                     <td>
-                        {{$one_news->message}}
+                        {{$allnews->message}}
                     </td>
                     <td>
-                        {{$one_news->name}}
+                        {{$allnews->name}}
                     </td>
                     <td>
-                        {{$one_news->email}}
+                        {{$allnews->email}}
                     </td>
                     <td>
-                        <a href="{{route('authors.show', ['id' => $one_news->author->id])}}" class="btn btn-block btn-light">
-                        {{$one_news->author->name}}
-                        </a>
+                            {{$allnews->author->name}}
                     </td>
                     <td>
-                        <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>
-                        <a class="btn btn-warning" href="{{ route('news.edit' ,$one_news->id) }}">Edit</a>
+                        <a href="{{route('authors.destroy', ['id' => $allnews->id])}}" class="btn btn-danger"> Удалить</a>
+                        <a class="btn btn-warning" href="{{ route('authors.edit' ,$allnews->id) }}">Edit</a>
                     </td>
                 </tr>
                 </tbody>
             @endforeach
         </table>
-        {{$news->links()}}
-        <a href="{{ route('news.create') }}" class="btn btn-success">Create</a>
+        {{$author->links()}}
 
     </div>
 
 @endsection
-

@@ -15,7 +15,7 @@ class News extends Model
         'message',
         'name',
         'email',
-        'author_id'
+        'author_id',
     ];
 
     public function author() {

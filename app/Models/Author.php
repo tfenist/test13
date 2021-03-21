@@ -15,6 +15,6 @@ class Author extends Model
     ];
 
     public function allnews() {
-        return $this->hasMany('App/Models/News', 'author_id');
+        return $this->hasMany('App\Models\News', 'author_id');
     }
 }
