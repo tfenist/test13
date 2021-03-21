@@ -15,7 +15,7 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            @foreach ($authors as $allnews)
+            @foreach ($author as $allnews)
                 <tbody>
                 <tr>
                     <td>

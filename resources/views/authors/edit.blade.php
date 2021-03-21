@@ -4,7 +4,7 @@
     <div class="container">
         <h3>Edit</h3>
 
-        {!! Form::open(['route' => ['$authors.update']]) !!}
+        {!! Form::open(['route' => ['authors.update']]) !!}
         {{Form::hidden('id', $authors->id)}}
 
         <div class="form-group">

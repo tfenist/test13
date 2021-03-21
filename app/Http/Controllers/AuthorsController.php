@@ -95,7 +95,7 @@ class AuthorsController extends Controller
 
         $author = Author::find($author_id);
 
-//        dd($author,$author->allnews);
+        dd($author,$author->allnews);
 
 }
 }
