@@ -27,7 +27,6 @@ class MyController extends Controller
     public function create()
     {
         $data['authors'] = Author::pluck('name', 'id')->toArray();
-        //dd($data);
         return view('news.create',$data);
     }
 
@@ -68,7 +67,6 @@ class MyController extends Controller
             request()->session('Не введены все неоходимые данные');
             return redirect((route('news.create')))->withInput();
         } else {
-            //dump($input);
             $newNews = [
                 'subject' => $input['subject'],
                 'message' => $input['message'],
@@ -76,9 +74,7 @@ class MyController extends Controller
                 'email' => $input['email'],
                 'author_id' => $input['author_id'],
             ];
-
             $result = News::create($newNews);
-
             return redirect(route('news.index'));
         } // else if ($validator->fails())
 

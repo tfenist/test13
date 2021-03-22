@@ -15,36 +15,36 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            @foreach ($author as $allnews)
+            @foreach ($author->allnews as $one_news)
                 <tbody>
                 <tr>
                     <td>
-                        {{$allnews->id}}
+                        {{$author->id}}
                     </td>
                     <td>
-                        {{$allnews->subject}}
+                        {{$one_news->subject}}
                     </td>
                     <td>
-                        {{$allnews->message}}
+                        {{$one_news->message}}
                     </td>
                     <td>
-                        {{$allnews->name}}
+                        {{$author->name}}
                     </td>
                     <td>
-                        {{$allnews->email}}
+                        {{$one_news->email}}
                     </td>
                     <td>
-                            {{$allnews->author->name}}
+                            {{$author->name}}
                     </td>
                     <td>
-                        <a href="{{route('authors.destroy', ['id' => $allnews->id])}}" class="btn btn-danger"> Удалить</a>
-                        <a class="btn btn-warning" href="{{ route('authors.edit' ,$allnews->id) }}">Edit</a>
+                        <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>
+                        <a class="btn btn-warning" href="{{ route('news.edit' , ['id' => $one_news->id]) }}">Edit</a>
                     </td>
                 </tr>
                 </tbody>
             @endforeach
         </table>
-        {{$author->links()}}
+{{--        {{$author->links()}}--}}
 
     </div>
 
