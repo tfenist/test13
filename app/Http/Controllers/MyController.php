@@ -16,7 +16,7 @@ class MyController extends Controller
      * ****************************************************************************************************************/
     public function index()
     {
-        $data['news'] = News::paginate(`15`);
+        $data['news'] = News::paginate(4);
         return view('news.index', $data);
     }
 
