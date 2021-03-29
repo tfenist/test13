@@ -9,10 +9,10 @@
 
         <div class="form-group">
             {{Form::label('name', 'name')}}
-            {{Form::text('name',  $authors->name)}}
+            {{Form::text('name',  $authors->name,['placeholder'=> 'Введите заголовок', 'class' => 'form-control'])}}
         </div>
 
-        {{Form::submit('Сохранить изменения')}}
+        {{Form::submit('Сохранить изменения', ['class' => 'btn-success'])}}
         {!! Form::close() !!}
     </div>
 
