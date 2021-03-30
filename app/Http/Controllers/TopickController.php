@@ -14,7 +14,8 @@ class TopickController extends Controller
      */
     public function index()
     {
-        //
+        $data['topick'] =Topick::all();
+        return view('authors.index', $data);
     }
 
     /**
@@ -24,7 +25,7 @@ class TopickController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**

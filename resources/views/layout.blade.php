@@ -40,6 +40,7 @@
 
                     <a href="{{route('news.index')}}" class="btn btn-light"> Новости</a>
                     <a href="{{route('authors.index')}}" class="btn btn-light"> Авторы</a>
+                    <a href="{{route('authors.index')}}" class="btn btn-light"> Темы</a>
 
                 </ul>
 
