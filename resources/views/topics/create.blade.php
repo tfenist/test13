@@ -6,8 +6,8 @@
         {!! Form::open(['route' => ['topics.store']]) !!}
 
         <div class="form-group">
-            {{Form::label('name', 'name')}}
-            {{Form::text('name', null, ['placeholder'=> 'Введите тему', 'class' => 'form-control'])}}
+            {{Form::label('title', 'title')}}
+            {{Form::text('title', null, ['placeholder'=> 'Введите тему', 'class' => 'form-control'])}}
         </div>
 
         {{Form::submit('Добавить', ['class' => 'btn-success'])}}

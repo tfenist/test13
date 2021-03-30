@@ -23,7 +23,7 @@
                     </td>
                     <td>
                         <a href="{{route('topics.destroy', ['id' => $topic->id])}}" class="btn btn-danger"> Удалить</a>
-                        <a class="btn btn-warning" href="{{ route('$topics.edit' ,$topic->id) }}">Edit</a>
+                        <a class="btn btn-warning" href="{{ route('topics.edit' ,$topic->id) }}">Edit</a>
                     </td>
                 </tr>
                 </tbody>

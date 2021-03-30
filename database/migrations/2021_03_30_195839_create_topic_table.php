@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTopick extends Migration
+class CreateTopicTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTableTopick extends Migration
      */
     public function up()
     {
-        Schema::create('table_topick', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->text('theme');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateTableTopick extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_topick');
+        Schema::dropIfExists('topics');
     }
 }

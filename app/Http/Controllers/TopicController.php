@@ -37,7 +37,7 @@ class TopicController extends Controller
     {
         $input = $request->all();
         $validator = Validator::make($input, [
-            'title' => 'required',
+            'title' => 'required'
         ]);
         if ($validator->fails()) {
             request()->session('Не введены все неоходимые данные');
@@ -47,7 +47,7 @@ class TopicController extends Controller
                 'title' => $input['title'],
             ];
 
-            $result = Topic::create($newTopics);
+            Topic::create($newTopics);
             return redirect(route('topics.index'));
         } // else if ($validator->fails())
 
