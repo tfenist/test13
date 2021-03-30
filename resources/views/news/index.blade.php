@@ -11,6 +11,7 @@
                 <th scope="col">Message</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Theme</th>
                 <th scope="col">Author</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -32,6 +33,9 @@
                     </td>
                     <td>
                         {{$one_news->email}}
+                    </td>
+                    <td>
+                        {{$topick->name}}
                     </td>
                     <td>
                         <a href="{{route('authors.show', ['id' => $one_news->author->id])}}" class="btn btn-block btn-light">

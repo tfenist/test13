@@ -34,7 +34,10 @@
                         {{$one_news->email}}
                     </td>
                     <td>
-                            {{$author->name}}
+                        {{$author->name}}
+                    </td>
+                    <td>
+                        {{$topick->name}}
                     </td>
                     <td>
                         <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>

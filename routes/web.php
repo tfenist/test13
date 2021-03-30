@@ -34,6 +34,14 @@ Route::get('authors/destroy/{id}', [\App\Http\Controllers\AuthorsController::cla
 Route::post('authors/update', [\App\Http\Controllers\AuthorsController::class, 'update'])->name('authors.update');
 Route::get('authors/show/{id}', [\App\Http\Controllers\AuthorsController::class, 'show'])->name('authors.show');
 
+Route::get('topic', [\App\Http\Controllers\TopickController::class, 'index'])->name('topic.index');
+Route::get('topic/create', [\App\Http\Controllers\TopickController::class, 'create'])->name('topic.create');
+Route::post('topic/store', [\App\Http\Controllers\TopickController::class, 'store'])->name('topic.store');
+Route::get('topic/edit/{id}', [\App\Http\Controllers\TopickController::class, 'edit'])->name('topic.edit');
+Route::get('topic/destroy/{id}', [\App\Http\Controllers\TopickController::class, 'destroy'])->name('topic.destroy');
+Route::post('topic/update', [\App\Http\Controllers\TopickController::class, 'update'])->name('topic.update');
+Route::get('topic/show/{id}', [\App\Http\Controllers\TopickController::class, 'show'])->name('topic.show');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

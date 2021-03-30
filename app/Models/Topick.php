@@ -14,7 +14,7 @@ class Topick extends Model
         'theme',
 
     ];
-//    public function allnews() {
-//        return $this->belongsToMany('App\Models\News', 'topick_id', 'news_id',);
-//    }
+    public function allnews() {
+        return $this->belongsToMany('App\Models\News', 'news-topick', 'news_id', 'topick_id');
+    }
 }
