@@ -37,7 +37,7 @@
                         {{$author->name}}
                     </td>
                     <td>
-                        {{$topick->name}}
+                        {{$topick->theme}}
                     </td>
                     <td>
                         <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-danger"> Удалить</a>

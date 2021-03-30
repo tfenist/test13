@@ -9,6 +9,11 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Title</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Theme</th>
+                <th scope="col">Author</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             @foreach ($news as $one_news)
@@ -24,6 +29,18 @@
                         {{$one_news->message}}
                     </td>
                     <td>
+                        {{$author->name}}
+                    </td>
+                    <td>
+                        {{$one_news->email}}
+                    </td>
+                    <td>
+                        {{$author->name}}
+                    </td>
+                    <td>
+                        {{$topick->theme}}
+                    </td>
+                    <td>
                         <a href="{{route('authors.show', ['id' => $one_news->author->id])}}" class="btn btn-block btn-light">
                             {{$one_news->author->name}}
                         </a>
@@ -37,8 +54,6 @@
                 </tbody>
             @endforeach
         </table>
-        {{$news->links()}}
-        <a href="{{ route('news.create') }}" class="btn btn-success">Create</a>
 
     </div>
 

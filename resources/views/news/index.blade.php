@@ -35,7 +35,7 @@
                         {{$one_news->email}}
                     </td>
                     <td>
-                        {{$topick->name}}
+                        {{$topick->theme}}
                     </td>
                     <td>
                         <a href="{{route('authors.show', ['id' => $one_news->author->id])}}" class="btn btn-block btn-light">
