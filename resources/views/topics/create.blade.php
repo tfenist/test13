@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h3>Добавьте автора</h3>
-        {!! Form::open(['route' => ['topic.store']]) !!}
+        {!! Form::open(['route' => ['topics.store']]) !!}
 
         <div class="form-group">
             {{Form::label('name', 'name')}}
