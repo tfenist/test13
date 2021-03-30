@@ -41,7 +41,7 @@
                     <td>
                         <a href="{{route('news.destroy', ['id' => $one_news->id])}}" class="btn btn-block btn-danger"> Удалить</a>
                         <br>
-                        <a class="btn btn-warning" href="{{ route('news.edit' ,$one_news->id) }}">Редактировать</a>
+                        <a class="btn btn-block btn-warning" href="{{ route('news.edit' ,$one_news->id) }}">Редактировать</a>
                     </td>
                 </tr>
                 </tbody>
