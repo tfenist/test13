@@ -87,6 +87,7 @@
         @yield('content')
     </main>
 </div>
+{{--место для селект 2--}}
 </body>
 </html>
 

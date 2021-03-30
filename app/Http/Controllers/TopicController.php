@@ -100,7 +100,6 @@ class TopicController extends Controller
     public function destroy(Request $request, $id)
     {
         $topic = Topic::find($id);
-        $result = News::where('topic_id', $topic->id)->delete();
         $topic->delete();
         return redirect(route('topics.index'))->with('success', 'Топик удале!');
     }
